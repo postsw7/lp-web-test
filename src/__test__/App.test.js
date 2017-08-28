@@ -1,13 +1,21 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import App from 'components/App';
-
+import { shallow, mount } from 'enzyme';
+import App from 'containers/App';
+import { MemoryRouter } from 'react-router-dom';
 it('renders without crashing', () => {
-  shallow(<App />);
+  const wrapper = shallow(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  expect(wrapper).toBeDefined();
 });
 
 it('should render h2 element', () => {
-  const wrapper = shallow(<App />);
-  const h2El = <h2>Checking Develop Sever!</h2>;
-  expect(wrapper.contains(h2El)).toEqual(true);
+  const wrapper = shallow(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  expect(wrapper.find('h2')).toHaveLength(1);
 });
