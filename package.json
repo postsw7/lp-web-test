@@ -5,12 +5,15 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.11",
+    "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
@@ -23,8 +26,12 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "cross-env": "^5.0.5",
+    "enzyme": "^2.9.1",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "react-test-renderer": "^15.6.1",
+    "redux-logger": "^3.0.6"
   }
 }
