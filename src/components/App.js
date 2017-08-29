@@ -25,7 +25,7 @@ class App extends Component {
         {this.props.stores.brands.map((brand, i) => {
           return (
             <div key={i}>
-              <img src={brand.photo_url} />
+              <img src={brand.photo_url} alt={'brand'} />
               <strong>{brand.rank}</strong>위
               <br />
               {brand.name}
