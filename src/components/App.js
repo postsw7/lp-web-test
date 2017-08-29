@@ -3,12 +3,31 @@ import { Route, Switch } from 'react-router-dom';
 import { Home, Nav, Menu } from 'components';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      deviceToken: '',
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      deviceToken: '_' + Math.random().toString(36).substr(2, 9),
+    });
+  }
+
   handleClick() {
     this.props.createNewPage();
   }
 
   renderStores() {
     this.props.getStoreList();
+  }
+
+  getToken(deviceToken) {
+    console.log(deviceToken);
+    this.props.getGuestToken(deviceToken);
   }
 
   render() {
@@ -19,6 +38,9 @@ class App extends Component {
         </div>
         <button onClick={this.handleClick.bind(this)}>add page</button>
         <button onClick={this.renderStores.bind(this)}>get stores!</button>
+        <button onClick={this.getToken.bind(this, this.state.deviceToken)}>
+          get token!
+        </button>
         <strong>
           {this.props.stores.status}
         </strong>

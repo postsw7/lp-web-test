@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = state => ({
   pages: state.pages,
   stores: state.stores,
+  auths: state.auths,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -14,6 +15,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getStoreList: () => {
     dispatch(actions.getStoreList());
+  },
+  getGuestToken: deviceToken => {
+    dispatch(actions.getGuestToken(deviceToken));
   },
 });
 
