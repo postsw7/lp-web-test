@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Home, Nav, Menu } from 'components';
+import 'styles/css/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +27,6 @@ class App extends Component {
   }
 
   getToken(deviceToken) {
-    console.log(deviceToken);
     this.props.getGuestToken(deviceToken);
   }
 

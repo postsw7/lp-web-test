@@ -3,21 +3,20 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'http://api.dev.lookpin.co.kr';
 
-export const requestGuestToken = () => ({
+const requestGuestToken = () => ({
   type: types.REQUEST_GUEST_TOKEN,
 });
 
-export const failGuestToken = () => ({
+const failGuestToken = () => ({
   type: types.FAIL_GUEST_TOKEN,
 });
 
-export const successGuestToken = guestToken => ({
+const successGuestToken = guestToken => ({
   type: types.SUCCESS_GUEST_TOKEN,
   data: guestToken,
 });
 
 export const getGuestToken = deviceToken => {
-  console.log(deviceToken);
   const params = new URLSearchParams();
   params.append('device_token', deviceToken);
   return dispatch => {

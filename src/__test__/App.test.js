@@ -1,22 +1,30 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from 'containers/App';
-import store from 'store';
+import App from 'components/App';
 import { MemoryRouter } from 'react-router-dom';
-it('renders without crashing', () => {
-  const wrapper = shallow(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  );
-  expect(wrapper).toBeDefined();
-});
+import 'styles/css/App.css';
 
-it('should render h2 element', () => {
-  const wrapper = mount(
-    <MemoryRouter>
-      <App store={store} />
-    </MemoryRouter>
-  );
-  expect(wrapper.find('h2')).toHaveLength(1);
+describe('<App />', () => {
+  const props = {
+    stores: {
+      status: 'status',
+      brands: [],
+    },
+    pages: {
+      number: 1,
+    },
+  };
+  it('renders without crashing', () => {
+    const wrapper = mount(
+      <MemoryRouter>
+        <App {...props} />
+      </MemoryRouter>
+    );
+    expect(wrapper).toBeDefined();
+  });
+
+  it('should render h2 element', () => {
+    const wrapper = shallow(<App {...props} />);
+    expect(wrapper.find('h2')).toHaveLength(1);
+  });
 });

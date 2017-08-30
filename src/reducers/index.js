@@ -1,7 +1,7 @@
 import * as types from 'actions/actionTypes';
 import { combineReducers } from 'redux';
 
-const initialState = {
+export const initialState = {
   pages: {
     number: 1,
   },
