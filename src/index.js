@@ -6,7 +6,6 @@ import App from 'containers/App';
 import { Provider } from 'react-redux';
 import store from 'store';
 import registerServiceWorker from './registerServiceWorker';
-import 'polyfills';
 
 ReactDOM.render(
   <Provider store={store}>
